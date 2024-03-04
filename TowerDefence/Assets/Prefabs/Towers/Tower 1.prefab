@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3903705980262870368}
   - component: {fileID: -129485922914408917}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: Tower 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   projectileObject: {fileID: 3686886256950866258, guid: bf1fc9bac25732346a28be2cd6a65230, type: 3}
   projectileSpawner: {fileID: 0}
   shootDelay: 1
-  spread: 1
+  spread: 3
   damageType: 0
   target: {fileID: 0}
 --- !u!212 &-129485922914408917

@@ -8,24 +8,44 @@ using UnityEngine.UIElements;
 
 public enum eSpread
 {
-    Tack = 1,
-    Dart, 
-    Bomb
+    Spread = 1,
+    Direct, 
+    Artillery
 }
 
+
+[RequireComponent(typeof(SpriteRenderer))]
 public class Tower : MonoBehaviour
 {
+    public Sprite spriteSpread;
+    public Sprite spriteDirect;
+    public Sprite spriteArtillery;
     public ProjectileObject projectileObject;
     public ProjectileSpawner projectileSpawner;
     public float shootDelay = 1;
     public eSpread spread;
-
+    public eVulType damageType;
     public Transform target;
-
     public Coroutine shootCR;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        switch((int)spread)
+        {
+            case (int)eSpread.Spread:
+             GetComponent<SpriteRenderer>().sprite = spriteSpread;
+             break;
+             case (int)eSpread.Direct:
+             GetComponent<SpriteRenderer>().sprite = spriteDirect;
+             break;
+             case (int)eSpread.Artillery:
+             GetComponent<SpriteRenderer>().sprite = spriteArtillery;
+             break;
+
+        }
+        GetComponent<SpriteRenderer>().sortingOrder = 100;
         shootCR = StartCoroutine(Shoot_CR());
     }
 

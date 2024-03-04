@@ -6,9 +6,9 @@ using UnityEngine;
 public enum eVulType
 {
     All= 0,
-    Fire,
-    Water, 
-    Earth
+    Berf,
+    Buplo, 
+    Billitary
 }
 [CreateAssetMenu(fileName = "Enemy", menuName = "EnemyType", order = 1)]
 public class EnemyType : ScriptableObject
