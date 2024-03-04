@@ -15,5 +15,5 @@ MonoBehaviour:
   type: 2
   typeToTransition: 1
   vulnerableType: 0
-  texture: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  speed: 0
+  texture: {fileID: 1863268324, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
+  speed: 2
