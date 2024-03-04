@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a143f3aa6842e4a836c08c56477b79, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
-  type: 0
-  typeToTransition: 0
+  type: 2
+  typeToTransition: 1
   vulnerableType: 0
-  texture: {fileID: 0}
+  texture: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   speed: 0

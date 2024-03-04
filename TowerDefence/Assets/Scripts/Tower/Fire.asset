@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d1f7bdd5a7c75488177c7ecf63acbe, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  damageType: 0
-  speed: 0
-  size: 0
-  texture: {fileID: 0}
+  damageType: 1
+  speed: 10
+  size: 1
+  texture: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}

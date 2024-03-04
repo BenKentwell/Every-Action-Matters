@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,6 +8,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public EnemyType type;
+    public TrackPoint trackPoint;
     public Vector2 direction;
     public SpriteRenderer renderer;
 
@@ -15,6 +17,8 @@ public class Enemy : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
         renderer.sprite = type.texture;
 
+        SetDir();
+
     }
 
     private void Update()
@@ -22,12 +26,33 @@ public class Enemy : MonoBehaviour
         if(type.speed != 0)
         {
             transform.Translate(direction * type.speed * Time.deltaTime );
+            Debug.Log(Vector2.Distance(transform.position, trackPoint.transform.position));
+            if(Vector2.Distance(transform.position, trackPoint.transform.position) < 0.2f)
+            {
+                 if(trackPoint.nextTrack == null)
+                 {
+                     //Temperarily destory enemies
+                     DestroyImmediate(gameObject);
+                 }
+
+                trackPoint = trackPoint.nextTrack;
+                Debug.Log(trackPoint.name);
+                SetDir();
+            }
+                
         }
     }
 
     public void SetValues()
     {
         renderer.sprite = type.texture;
+        renderer.sortingOrder = type.type + 100;
+    }
+
+    public void SetDir()
+    {
+        direction = trackPoint.transform.position - transform.position;
+        direction.Normalize();
     }
     
 }

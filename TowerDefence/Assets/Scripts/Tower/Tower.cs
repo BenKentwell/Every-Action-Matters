@@ -20,6 +20,8 @@ public class Tower : MonoBehaviour
     public float shootDelay = 1;
     public eSpread spread;
 
+    public Transform target;
+
     public Coroutine shootCR;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,7 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SetDirection();
     }
 
     public IEnumerator Shoot_CR()
@@ -38,7 +40,7 @@ public class Tower : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(shootDelay);
-            SetDirection();
+            
             //SetRotation
             Shoot();
         }
@@ -46,13 +48,17 @@ public class Tower : MonoBehaviour
 
     public void Shoot()
     {
+
+        //This needs to find the object that is furtherst along the track;
+
         projectileSpawner.ShootNew(transform, spread, projectileObject);
     }
     private void SetDirection()
     {
-      //  Vector2 diff = new Vector2(transform.position.x - Input.mousePosition.y, transform.position.y );
-        float angle = Vector2.Angle(new Vector2(Input.mousePosition.x, Input.mousePosition.y),new Vector2(transform.position.x, transform.position.y) );
-        
-        transform.rotation = Quaternion.Euler(0,0,angle);
+        Vector2 diff = new Vector2(transform.position.x - target.position.x  ,transform.position.y - target.position.y );
+        diff.Normalize();
+        float angle = Mathf.Atan2(diff.y, diff.x);
+        angle *= Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
     }
 }
