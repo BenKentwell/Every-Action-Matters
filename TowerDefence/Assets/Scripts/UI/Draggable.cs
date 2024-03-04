@@ -50,6 +50,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 				transform.position = _eventData.position;
 			}
 		}
+		private void Update()
+		{
+			Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		}
 
 		public void OnEndDrag(PointerEventData _eventData)
 		{
@@ -70,16 +74,15 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 			// 		return;
 			// }
 
+			
 			RaycastHit hit = new();
-			if(Physics.Raycast(Camera.main.transform.position, _eventData.pointerCurrentRaycast.worldPosition, out hit))
-			{
-				if(!hit.collider.gameObject.CompareTag("Road"))
-				{
-					Instantiate(towerToSpawn, hit.point, quaternion.identity);
-					Object.Destroy(this.gameObject);
-					return;
-				}
-			}
+			Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			
+			Instantiate(towerToSpawn,vec , quaternion.identity);
+			Object.Destroy(this.gameObject);
+			return;
+				
+			
 		}
 
 

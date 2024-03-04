@@ -27,14 +27,18 @@ public class Tower : MonoBehaviour
     public eVulType damageType;
     public Transform target;
     public Coroutine shootCR;
+    public float viewDistanceRadius = 2;
+
+    private List<Enemy> enemiesWithinRange = new();
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<CircleCollider2D>().radius = viewDistanceRadius;
         switch((int)spread)
         {
             case (int)eSpread.Spread:
+
              GetComponent<SpriteRenderer>().sprite = spriteSpread;
              break;
              case (int)eSpread.Direct:
@@ -52,7 +56,8 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetDirection();
+       // SetDirection();
+        //Debug.Log(enemiesWithinRange.Count);
     }
 
     public IEnumerator Shoot_CR()
@@ -60,18 +65,33 @@ public class Tower : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(shootDelay);
-            
-            //SetRotation
-            Shoot();
+            if(enemiesWithinRange.Count > 0)
+            {
+                Enemy furthest = enemiesWithinRange[0];
+                for(int i = 1; i < enemiesWithinRange.Count; i++)
+                {
+                    Enemy current = enemiesWithinRange[i];
+                    if(current.trackPoint.trackNumber >= furthest.trackPoint.trackNumber)
+                    {
+                        if(Vector2.Distance(current.transform.position, current.trackPoint.nextTrack.transform.position)
+                             < Vector2.Distance(furthest.transform.position, furthest.trackPoint.nextTrack.transform.position))
+                        {
+                            furthest = current;
+                        }
+                    }
+                }
+
+                Shoot(furthest);
+            }
         }
     }
 
-    public void Shoot()
+    public void Shoot(Enemy _enemy)
     {
+        //This needs to find the object that is furtherst along the track, pop it and send a sprite in the direction
+       projectileSpawner.ShootNew(this, _enemy);
+        _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
 
-        //This needs to find the object that is furtherst along the track;
-
-        projectileSpawner.ShootNew(transform, spread, projectileObject);
     }
     private void SetDirection()
     {
@@ -81,4 +101,27 @@ public class Tower : MonoBehaviour
         angle *= Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        Enemy e = other.gameObject.GetComponent<Enemy>();
+        if(e != null)
+        {
+            if(!enemiesWithinRange.Contains(e))
+                enemiesWithinRange.Add(e);
+        }
+    }
+
+     private void OnTriggerExit2D(Collider2D other)
+    {
+        Enemy e = other.gameObject.GetComponent<Enemy>();
+        if(e != null)
+        {
+            if(enemiesWithinRange.Contains(e))
+                enemiesWithinRange.Remove(e);
+        }
+    }
+    
+
 }

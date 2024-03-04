@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyType type;
     public TrackPoint trackPoint;
+    
     public Vector2 direction;
     public SpriteRenderer renderer;
 
@@ -26,8 +27,7 @@ public class Enemy : MonoBehaviour
         if(type.speed != 0)
         {
             transform.Translate(direction * type.speed * Time.deltaTime );
-            Debug.Log(Vector2.Distance(transform.position, trackPoint.transform.position));
-            if(Vector2.Distance(transform.position, trackPoint.transform.position) < 0.2f)
+            if(Vector2.Distance(transform.position, trackPoint.transform.position) < 0.1f)
             {
                  if(trackPoint.nextTrack == null)
                  {
@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
                  }
 
                 trackPoint = trackPoint.nextTrack;
-                Debug.Log(trackPoint.name);
                 SetDir();
             }
                 

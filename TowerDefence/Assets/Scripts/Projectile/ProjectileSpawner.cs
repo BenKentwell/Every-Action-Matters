@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ProjectileSpawner : MonoBehaviour
 {
-    public void ShootNew(Transform _tower, eSpread _spread, ProjectileObject _proj )  
+    public void ShootNew(Tower _tower, Enemy _enemy)  
     {
         
     }

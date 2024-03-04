@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5749917280410927182}
   - component: {fileID: 7521520450963014429}
   - component: {fileID: 7185652158895759845}
+  - component: {fileID: 2424287055409244196}
   m_Layer: 0
   m_Name: smallTest
   m_TagString: Untagged
@@ -115,3 +116,19 @@ MonoBehaviour:
   trackPoint: {fileID: 0}
   direction: {x: 1, y: 0}
   renderer: {fileID: 5749917280410927182}
+--- !u!58 &2424287055409244196
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749917280410927183}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.47

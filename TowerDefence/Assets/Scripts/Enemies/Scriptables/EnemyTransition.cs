@@ -31,4 +31,26 @@ private void Update()
         }
 
     }
+
+    public void Break(eVulType _damageType)
+    {
+         Debug.Log("Break");
+         Enemy thisEnemy = GetComponent<Enemy>();
+            if(thisEnemy.type.vulnerableType == eVulType.All || thisEnemy.type.vulnerableType == _damageType)
+            {
+                EnemyType t = transitionManager.GetType(thisEnemy.type.typeToTransition);
+
+                 if(t == null)
+                 {
+                    Destroy(gameObject);
+                    return;
+                 }
+                    
+                thisEnemy.type = t;
+                thisEnemy.SetValues();
+                return;
+            }
+           
+        
+    }
 }

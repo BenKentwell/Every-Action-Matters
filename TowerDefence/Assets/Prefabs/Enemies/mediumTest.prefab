@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6191236484136567958}
   - component: {fileID: 8349080195643358825}
   - component: {fileID: 6230660767915981848}
+  - component: {fileID: 5762105985507161256}
   m_Layer: 0
   m_Name: mediumTest
   m_TagString: Untagged
@@ -115,3 +116,19 @@ MonoBehaviour:
   trackPoint: {fileID: 0}
   direction: {x: 0, y: 0}
   renderer: {fileID: 6191236484136567958}
+--- !u!58 &5762105985507161256
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942460463091110791}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7636231503400956543}
   - component: {fileID: 3903705980262870368}
   - component: {fileID: -129485922914408917}
+  - component: {fileID: 1045644350057426105}
+  - component: {fileID: 1244373005978721932}
   m_Layer: 0
   m_Name: Tower 2
   m_TagString: Untagged
@@ -51,9 +53,10 @@ MonoBehaviour:
   projectileObject: {fileID: 3686886256950866258, guid: bf1fc9bac25732346a28be2cd6a65230, type: 3}
   projectileSpawner: {fileID: 0}
   shootDelay: 1
-  spread: 2
-  damageType: 0
+  spread: 1
+  damageType: 1
   target: {fileID: 0}
+  viewDistanceRadius: 2
 --- !u!212 &-129485922914408917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,3 +109,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1045644350057426105
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931025706821900724}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &1244373005978721932
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931025706821900724}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0

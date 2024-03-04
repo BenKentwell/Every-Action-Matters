@@ -1235,15 +1235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
   - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
   - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
+  - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -3488,6 +3482,7 @@ GameObject:
   - component: {fileID: 1669468306}
   - component: {fileID: 1669468308}
   - component: {fileID: 1669468307}
+  - component: {fileID: 1669468309}
   m_Layer: 0
   m_Name: BackgroundBase
   m_TagString: Untagged
@@ -10825,6 +10820,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &1669468309
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669468305}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.5, y: -0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 45, y: 21}
+  m_EdgeRadius: 0
 --- !u!1 &1886018309
 GameObject:
   m_ObjectHideFlags: 0
@@ -10877,7 +10898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c094e31179c6b4682cd2be72b32c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteUI: {fileID: -2097719796, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
+  spriteUI: {fileID: 611825871, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
   towerToSpawn: {fileID: 4931025706821900724, guid: 632b21793feb283438cf0922ecabb522, type: 3}
 --- !u!114 &1886018312
 MonoBehaviour:
@@ -10989,7 +11010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c094e31179c6b4682cd2be72b32c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteUI: {fileID: -2097719796, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
+  spriteUI: {fileID: 1517395542, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
   towerToSpawn: {fileID: 4931025706821900724, guid: 38c5f3d1dc45e494c827056722edddc2, type: 3}
 --- !u!114 &1992409326
 MonoBehaviour:
@@ -11143,7 +11164,7 @@ PrefabInstance:
     - target: {fileID: 6290106352310108758, guid: 787fef708d9a35841960eda7e22a9d05, type: 3}
       propertyPath: spriteUI
       value: 
-      objectReference: {fileID: -2097719796, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
+      objectReference: {fileID: -1283465696, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
     - target: {fileID: 6290106352310108758, guid: 787fef708d9a35841960eda7e22a9d05, type: 3}
       propertyPath: towerToSpawn
       value: 

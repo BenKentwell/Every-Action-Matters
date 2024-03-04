@@ -21,4 +21,5 @@ public class ProjectileObject : MonoBehaviour
     {
         transform.Translate(transform.up * projectileScriptable.speed * Time.deltaTime);
     }
+
 }
