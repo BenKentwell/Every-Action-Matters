@@ -76,7 +76,7 @@ public class Tower : MonoBehaviour
             
        
         GetComponent<SpriteRenderer>().sortingOrder = 100;
-        shootCR = StartCoroutine(Shoot_CR());
+      
         towerManager.AddTower(this);
     }
 
@@ -91,7 +91,7 @@ public class Tower : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(shootDelay);
+            yield return new WaitForSeconds(1);
             if(enemiesWithinRange.Count > 0 && isEnabledToShoot)
             {
                 Enemy furthest = enemiesWithinRange[0];
@@ -109,7 +109,7 @@ public class Tower : MonoBehaviour
                 }
 
                 
-                    Shoot(furthest);
+                Shoot(furthest);
             }
         }
     }
@@ -124,8 +124,8 @@ public class Tower : MonoBehaviour
             {
                 case (int)eSpread.Direct:
                     sfxManager.PlayOneShot(hitAudio);
-                    _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
-                    enemiesWithinRange.Remove(_enemy);
+                    if(_enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType))
+                        enemiesWithinRange.Remove(_enemy);
                 break;
 
                 case (int)eSpread.Artillery:
@@ -140,10 +140,13 @@ public class Tower : MonoBehaviour
                             if(results[i].gameObject.GetComponent<Enemy>())
                             {
                                 sfxManager.PlayOneShot(hitAudio);
-                                results[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
+                                if (results[i].gameObject.GetComponent<EnemyTransition>().Break(damageType)) 
+                                {
+                                    if (enemiesWithinRange.Contains(results[i].gameObject.GetComponent<Enemy>()))
+                                        enemiesWithinRange.Remove(results[i].gameObject.GetComponent<Enemy>());
+                                }
 
-                                if(enemiesWithinRange.Contains(results[i].gameObject.GetComponent<Enemy>()))
-                                    enemiesWithinRange.Remove(results[i].gameObject.GetComponent<Enemy>());
+                               
                             }
                             
                         }
@@ -156,9 +159,10 @@ public class Tower : MonoBehaviour
                         max = enemiesWithinRange.Count -1;
                     for(int i = max; i >= 0; i--)
                     {
+                        Enemy e = enemiesWithinRange[i];
                         sfxManager.PlayOneShot(hitAudio);
-                        enemiesWithinRange[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
-                        enemiesWithinRange.Remove(enemiesWithinRange[i].gameObject.GetComponent<Enemy>());
+                        if(e.gameObject.GetComponent<EnemyTransition>().Break(damageType))
+                            enemiesWithinRange.Remove(e);
                     }
                     Debug.Log($"spread shot {max} babooshkas");
 
@@ -205,10 +209,12 @@ public class Tower : MonoBehaviour
         if(!_bool)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0.5f);
+           
         }
         else
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+           // shootCR = StartCoroutine(Shoot_CR());
         }
 
     }
