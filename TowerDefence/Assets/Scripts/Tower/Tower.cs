@@ -20,13 +20,14 @@ public class Tower : MonoBehaviour
     public Sprite spriteSpreadBerf;
     public Sprite spriteDirectBerf;
     public Sprite spriteArtilleryBerf;
-     public Sprite spriteSpreadBartillery;
+    public Sprite spriteSpreadBartillery;
     public Sprite spriteDirectBartillery;
     public Sprite spriteArtilleryBartillery;
-     public Sprite spriteSpreadBuplo;
+    public Sprite spriteSpreadBuplo;
     public Sprite spriteDirectBuplo;
     public Sprite spriteArtillerybuplo;
 
+    public Sprite[] multiplierSprites;
 
     public GameObject projectileObject;
     public ProjectileSpawner projectileSpawner;
@@ -44,13 +45,22 @@ public class Tower : MonoBehaviour
     public AudioClip hitAudio;
     private AudioSource sfxManager;
 
+    private float timeToDecrement;
+
+    private int multiplierIndex;
+    [SerializeField]private SpriteRenderer multiplierRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        multiplierIndex = 0;
         projectileSpawner = GameObject.FindWithTag("ProjectileSpawner").GetComponent<ProjectileSpawner>();
         towerManager = GameObject.FindWithTag("ProjectileSpawner").GetComponent<TowerManager>();
         sfxManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioSource>();
-        
+
+        timeToDecrement = shootDelay / 15;
+
+
         GetComponent<CircleCollider2D>().radius = viewDistanceRadius;
         if(spread == eSpread.Spread && damageType == eVulType.Berf)
             GetComponent<SpriteRenderer>().sprite = spriteSpreadBerf;
@@ -76,7 +86,8 @@ public class Tower : MonoBehaviour
             
        
         GetComponent<SpriteRenderer>().sortingOrder = 100;
-      
+        PlaceNewTower();
+
         towerManager.AddTower(this);
     }
 
@@ -140,13 +151,11 @@ public class Tower : MonoBehaviour
                             if(results[i].gameObject.GetComponent<Enemy>())
                             {
                                 sfxManager.PlayOneShot(hitAudio);
-                                if (results[i].gameObject.GetComponent<EnemyTransition>().Break(damageType)) 
+                                if (results[i].gameObject.GetComponent<EnemyTransition>().Break(damageType))
                                 {
                                     if (enemiesWithinRange.Contains(results[i].gameObject.GetComponent<Enemy>()))
                                         enemiesWithinRange.Remove(results[i].gameObject.GetComponent<Enemy>());
                                 }
-
-                               
                             }
                             
                         }
@@ -218,6 +227,37 @@ public class Tower : MonoBehaviour
         }
 
     }
-    
 
+    public void IncreaseShootSpeed()
+    {
+       if(multiplierIndex < 9)
+        {
+            multiplierIndex++;
+            multiplierRenderer.sprite = multiplierSprites[multiplierIndex];
+            shootDelay -= timeToDecrement;
+        }
+    }
+
+    public void PlaceNewTower()
+    {
+        List<Collider2D> results = new();
+        ContactFilter2D filter2D = new ContactFilter2D();
+        filter2D.NoFilter();
+        bool thisIncreased = false;
+        int objects = Physics2D.OverlapCircle(transform.position, viewDistanceRadius, filter2D, results);
+
+        foreach(Collider2D collider in results)
+        {
+            Tower otherTower = collider.gameObject.GetComponent<Tower>();
+            if(otherTower != null && otherTower != this && otherTower.damageType == this.damageType) 
+            {
+                if (!thisIncreased) 
+                {
+                    thisIncreased = true;
+                    IncreaseShootSpeed();
+                }
+                otherTower.IncreaseShootSpeed();
+            }
+        }
+    }
 }

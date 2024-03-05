@@ -8,22 +8,15 @@ public class ProjectileSpawner : MonoBehaviour
 {
     public void ShootNew(Tower _tower, Enemy _enemy)  
     {
-       // float angle = Vector2.Angle(_tower.transform.position, _enemy.transform.position);
-        // Vector2 dir = _tower.transform.position - _enemy.transform.position;
-        // dir.Normalize();
-
-        // float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        //Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        // GameObject porj = Instantiate(_tower.projectileObject, _tower.transform.position, q);
-        // porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
-        // porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
-
-        switch((eSpread)_tower.spread)
+        switch(_tower.spread)
         {
             case eSpread.Direct:
-                Quaternion q = Quaternion.FromToRotation(_tower.transform.position, _enemy.transform.position);
+                float angle = Vector2.SignedAngle(_tower.transform.position, _enemy.transform.position);
+
+                Quaternion q = Quaternion.identity;
                 GameObject porj = Instantiate(_tower.projectileObject, _tower.transform.position, q);
+                porj.transform.Rotate(0, 0, angle);
+
                 porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
                 porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
             break;
@@ -37,18 +30,6 @@ public class ProjectileSpawner : MonoBehaviour
                 porju.GetComponent<SpriteRenderer>().sortingOrder = 101;
             break;
 
-            // case eSpread.Artillery:
-            //     Quaternion q = Quaternion.FromToRotation(_tower.transform.position, _enemy.transform.position);
-            //     GameObject porj = Instantiate(_tower.projectileObject, _tower.transform.position, q);
-            //     porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
-            //     porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
-            // break;
-
         }
-        
-
-
-        
-
     }
 }

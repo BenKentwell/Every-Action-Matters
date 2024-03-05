@@ -15,6 +15,7 @@ public class EnemyWave : MonoBehaviour
     public TransitionManager transitionManager;
     public Coroutine spawnCR;
     public float maximumSeconds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,7 @@ public class EnemyWave : MonoBehaviour
             Enemy enemy = Instantiate(enemies[en], startPoint.transform.position, transform.rotation);
             enemy.trackPoint = startPoint.nextTrack;
             enemy.gameObject.GetComponent<EnemyTransition>().transitionManager = transitionManager;
+
             }
             
         }
