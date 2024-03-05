@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a143f3aa6842e4a836c08c56477b79, type: 3}
   m_Name: A8-Bronze
   m_EditorClassIdentifier: 
-  type: 0
-  typeToTransition: 0
+  type: 8
+  typeToTransition: 7
   vulnerableType: 0
   texture: {fileID: -746155908, guid: 5b5700cfec7d9b849884b931fe20db15, type: 3}
-  speed: 0
+  speed: 5

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28a143f3aa6842e4a836c08c56477b79, type: 3}
-  m_Name: A6-Pink
+  m_Name: C7-Black
   m_EditorClassIdentifier: 
-  type: 6
-  typeToTransition: 5
-  vulnerableType: 0
-  texture: {fileID: 1331536654, guid: 5b5700cfec7d9b849884b931fe20db15, type: 3}
-  speed: 4
+  type: 23
+  typeToTransition: 22
+  vulnerableType: 2
+  texture: {fileID: 592134052, guid: 5b5700cfec7d9b849884b931fe20db15, type: 3}
+  speed: 4.3
