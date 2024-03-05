@@ -120,6 +120,7 @@ public class Tower : MonoBehaviour
             {
                 case (int)eSpread.Direct:
                     _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
+                    _enemy.gameObject.GetComponent<AudioSource>().Play();
                     enemiesWithinRange.Remove(_enemy);
                 break;
 
@@ -135,6 +136,8 @@ public class Tower : MonoBehaviour
                             if(results[i].gameObject.GetComponent<Enemy>())
                             {
                                 results[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
+                                results[i].gameObject.GetComponent<AudioSource>().Play();
+
                                 if(enemiesWithinRange.Contains(results[i].gameObject.GetComponent<Enemy>()))
                                     enemiesWithinRange.Remove(results[i].gameObject.GetComponent<Enemy>());
                             }
@@ -150,6 +153,7 @@ public class Tower : MonoBehaviour
                     for(int i = max; i >= 0; i--)
                     {
                         enemiesWithinRange[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
+                        enemiesWithinRange[i].gameObject.GetComponent<AudioSource>().Play();    
                         enemiesWithinRange.Remove(enemiesWithinRange[i].gameObject.GetComponent<Enemy>());
                     }
                     Debug.Log($"spread shot {max} babooshkas");
