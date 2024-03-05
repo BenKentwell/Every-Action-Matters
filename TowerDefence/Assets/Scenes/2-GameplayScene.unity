@@ -2304,7 +2304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 2
   nextTrack: {fileID: 1972047006}
-  isEndTrack: 1
+  isEndTrack: 0
 --- !u!4 &1125814016
 Transform:
   m_ObjectHideFlags: 0
