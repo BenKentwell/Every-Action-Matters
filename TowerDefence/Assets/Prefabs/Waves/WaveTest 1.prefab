@@ -77,3 +77,4 @@ MonoBehaviour:
   startPoint: {fileID: 0}
   spawner: {fileID: 0}
   transitionManager: {fileID: 0}
+  maximumSeconds: 0.2

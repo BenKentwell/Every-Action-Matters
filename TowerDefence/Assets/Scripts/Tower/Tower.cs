@@ -38,11 +38,15 @@ public class Tower : MonoBehaviour
     public float viewDistanceRadius = 2;
 
     public List<Enemy> enemiesWithinRange = new();
+    public TowerManager towerManager;
+    public bool isEnabledToShoot;
 
     // Start is called before the first frame update
     void Start()
     {
         projectileSpawner = GameObject.FindWithTag("ProjectileSpawner").GetComponent<ProjectileSpawner>();
+        towerManager = GameObject.FindWithTag("ProjectileSpawner").GetComponent<TowerManager>();
+        
         GetComponent<CircleCollider2D>().radius = viewDistanceRadius;
         if(spread == eSpread.Spread && damageType == eVulType.Berf)
             GetComponent<SpriteRenderer>().sprite = spriteSpreadBerf;
@@ -69,6 +73,7 @@ public class Tower : MonoBehaviour
        
         GetComponent<SpriteRenderer>().sortingOrder = 100;
         shootCR = StartCoroutine(Shoot_CR());
+        towerManager.AddTower(this);
     }
 
     // Update is called once per frame
@@ -83,7 +88,7 @@ public class Tower : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(shootDelay);
-            if(enemiesWithinRange.Count > 0)
+            if(enemiesWithinRange.Count > 0 && isEnabledToShoot)
             {
                 Enemy furthest = enemiesWithinRange[0];
                 for(int i = 1; i < enemiesWithinRange.Count; i++)
@@ -99,7 +104,8 @@ public class Tower : MonoBehaviour
                     }
                 }
 
-                Shoot(furthest);
+                
+                    Shoot(furthest);
             }
         }
     }
@@ -110,7 +116,8 @@ public class Tower : MonoBehaviour
         if(_enemy != null)
         {
             projectileSpawner.ShootNew(this, _enemy);
-            switch((int)spread){
+            switch((int)spread)
+            {
                 case (int)eSpread.Direct:
                     _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
                     enemiesWithinRange.Remove(_enemy);
@@ -134,6 +141,19 @@ public class Tower : MonoBehaviour
                             
                         }
                     }
+                break;
+
+                case (int)eSpread.Spread:
+                    int max = 8;
+                    if(max > enemiesWithinRange.Count -1)
+                        max = enemiesWithinRange.Count -1;
+                    for(int i = max; i >= 0; i--)
+                    {
+                        enemiesWithinRange[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
+                        enemiesWithinRange.Remove(enemiesWithinRange[i].gameObject.GetComponent<Enemy>());
+                    }
+                    Debug.Log($"spread shot {max} babooshkas");
+
                 break;
 
             }
@@ -170,6 +190,19 @@ public class Tower : MonoBehaviour
             if(enemiesWithinRange.Contains(e))
                 enemiesWithinRange.Remove(e);
         }
+    }
+    public void SetShooting(bool _bool)
+    {
+        isEnabledToShoot = _bool;
+        if(!_bool)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0.5f);
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+        }
+
     }
     
 

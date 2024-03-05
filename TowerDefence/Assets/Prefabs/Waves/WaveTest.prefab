@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 6230660767915981848, guid: 288c5faa218d15e498cf568ec8cf7eeb, type: 3}
-  enemyCount: 05000000
+  enemyCount: f4010000
   curve:
     serializedVersion: 2
     m_Curve:
@@ -74,3 +74,4 @@ MonoBehaviour:
   startPoint: {fileID: 0}
   spawner: {fileID: 0}
   transitionManager: {fileID: 0}
+  maximumSeconds: 0.2
