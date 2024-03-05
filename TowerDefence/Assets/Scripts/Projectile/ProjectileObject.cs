@@ -6,6 +6,7 @@ using UnityEngine;
 public class ProjectileObject : MonoBehaviour
 {
     public Projectile projectileScriptable;
+    public Vector3 endPoint;
     public int damage;
     public SpriteRenderer renderer;
     // Start is called before the first frame update
@@ -20,6 +21,14 @@ public class ProjectileObject : MonoBehaviour
     void Update()
     {
         transform.Translate(transform.up * projectileScriptable.speed * Time.deltaTime);
+        if(Vector2.Distance(transform.position, endPoint) < 0.2f)
+            Destroy(gameObject);
+    }
+
+    public void SetEndPoint(Vector3 _point)
+    {
+        
+        endPoint = _point;
     }
 
 }

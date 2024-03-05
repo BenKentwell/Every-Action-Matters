@@ -50,7 +50,7 @@ MonoBehaviour:
   spriteSpread: {fileID: -386022056, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
   spriteDirect: {fileID: 1478765035, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
   spriteArtillery: {fileID: -1201721238, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
-  projectileObject: {fileID: 3686886256950866258, guid: bf1fc9bac25732346a28be2cd6a65230, type: 3}
+  projectileObject: {fileID: 3278342981350384274, guid: bf1fc9bac25732346a28be2cd6a65230, type: 3}
   projectileSpawner: {fileID: 0}
   shootDelay: 1
   spread: 3

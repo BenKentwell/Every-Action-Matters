@@ -20,7 +20,7 @@ public class Tower : MonoBehaviour
     public Sprite spriteSpread;
     public Sprite spriteDirect;
     public Sprite spriteArtillery;
-    public ProjectileObject projectileObject;
+    public GameObject projectileObject;
     public ProjectileSpawner projectileSpawner;
     public float shootDelay = 1;
     public eSpread spread;
@@ -34,6 +34,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        projectileSpawner = GameObject.FindWithTag("ProjectileSpawner").GetComponent<ProjectileSpawner>();
         GetComponent<CircleCollider2D>().radius = viewDistanceRadius;
         switch((int)spread)
         {
