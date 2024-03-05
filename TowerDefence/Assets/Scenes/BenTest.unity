@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 1
   nextTrack: {fileID: 1021106852}
+  isEndTrack: 0
 --- !u!4 &242946027
 Transform:
   m_ObjectHideFlags: 0
@@ -1190,6 +1191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 2
   nextTrack: {fileID: 1651404242}
+  isEndTrack: 0
 --- !u!4 &437984753
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,10 +1236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5912fd356f12d4a4c9d3eb0171b1bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
-  - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
-  - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
+  waves:
+  - {fileID: 4837705899314727419, guid: b196018bdf397704498af8e8d390b0fd, type: 3}
+  - {fileID: 4837705899314727419, guid: 2053c9a6c23021b46899b36ec785acd0, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -1282,6 +1283,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startPoint: {fileID: 242946026}
   transitionManager: {fileID: 1392861443}
+  currentWave: 0
 --- !u!4 &527104788
 Transform:
   m_ObjectHideFlags: 0
@@ -1566,6 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 2
   nextTrack: {fileID: 437984752}
+  isEndTrack: 0
 --- !u!4 &1021106853
 Transform:
   m_ObjectHideFlags: 0
@@ -2230,6 +2233,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f55fbaff3c80150449462d2b771c4902, type: 2}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 432a590f19fae7946af1a5d8da11c7a1, type: 2}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d654809f7336ab4685cf70ffdb19681, type: 2}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 025e50db9b0dcc64094cce694820ae81, type: 2}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f690363320ba8644aa97cefd2f6f976, type: 2}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7374570f7b179884f919863337283089, type: 2}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 712544ab736c15e4bb27de8e35a6b61b, type: 2}
+    - target: {fileID: 6368754257435824671, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
+      propertyPath: types.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 712544ab736c15e4bb27de8e35a6b61b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 765b582318d6dc3449b9aa434d033c3f, type: 3}
 --- !u!114 &1392861443 stripped
@@ -3393,7 +3432,7 @@ GameObject:
   - component: {fileID: 1566341494}
   m_Layer: 0
   m_Name: ProjectileSpawner
-  m_TagString: Untagged
+  m_TagString: ProjectileSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3456,6 +3495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 3
   nextTrack: {fileID: 0}
+  isEndTrack: 1
 --- !u!4 &1651404243
 Transform:
   m_ObjectHideFlags: 0

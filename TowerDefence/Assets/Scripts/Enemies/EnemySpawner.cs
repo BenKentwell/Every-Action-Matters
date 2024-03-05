@@ -4,35 +4,40 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Enemy[] enemies;
+    public EnemyWave[] waves;
     public AnimationCurve curve;
     public TrackPoint startPoint;
 
-public TransitionManager transitionManager;
+
+    public TransitionManager transitionManager;
     public Coroutine spawnCR;
+
+    public int currentWave;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnCR = StartCoroutine(Spawn_CR());    
+            waves[currentWave].startPoint = startPoint;
+            waves[currentWave].spawner = this;
+         waves[currentWave].transitionManager = transitionManager;
+        waves[currentWave].spawnCR = StartCoroutine(waves[currentWave].Spawn_CR());
     }
 
-    public IEnumerator Spawn_CR()
+    public void StartNextWave()
     {
-        int i = 0;
-        int iMax = enemies.Length;
-        foreach(Enemy e in enemies)
+        currentWave++;
+        if(currentWave < waves.Length)
         {
-            i++;
-            yield return new WaitForSeconds(curve.Evaluate(i/iMax) * 2);
-            Enemy enemy = Instantiate(e, startPoint.transform.position, transform.rotation);
-            enemy.trackPoint = startPoint.nextTrack;
-            enemy.gameObject.GetComponent<EnemyTransition>().transitionManager = transitionManager;
+        waves[currentWave].startPoint = startPoint;
+        waves[currentWave].spawner = this;
+         waves[currentWave].transitionManager = transitionManager;
+        waves[currentWave].spawnCR = StartCoroutine(waves[currentWave].Spawn_CR());
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
         
+    }
+ 
+
+    public int CurrentWave(){
+        return currentWave +1;
     }
 }
