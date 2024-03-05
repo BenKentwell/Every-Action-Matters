@@ -51,6 +51,8 @@ public class DeathScreen : MonoBehaviour
     {
         Time.timeScale = 1;
 
+        musicMixer.SetFloat("MusicLowpass", 22000.00f);
+
         Debug.Log("Exit to menu");
         SceneManager.LoadScene("1-MainMenu");
     }
