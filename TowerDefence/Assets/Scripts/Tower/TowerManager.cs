@@ -28,6 +28,25 @@ public class TowerManager : MonoBehaviour
                 }
                 berfReEnableCR = StartCoroutine(EnableBerfTowers_CR());
             break;
+
+             case eVulType.Billitary:
+                billitaryTowers.Add(_tower);
+                foreach (Tower tower in billitaryTowers)
+                {
+                    tower.SetShooting(false);
+                }
+                billitaryReEnableCR = StartCoroutine(EnableBillitaryTowers_CR());
+            break;
+
+              case eVulType.Buplo:
+                buploTowers.Add(_tower);
+                foreach (Tower tower in buploTowers)
+                {
+                    tower.SetShooting(false);
+                }
+                buploReEnableCR = StartCoroutine(EnableBuploTowers_CR());
+            break;
+        
         }
     }
 
@@ -35,6 +54,24 @@ public class TowerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(secondsForEnablingTowers);
         foreach (Tower tower in berfTowers)
+        {
+            tower.SetShooting(true);
+        }
+    }
+
+     public IEnumerator EnableBuploTowers_CR()
+    {
+        yield return new WaitForSeconds(secondsForEnablingTowers);
+        foreach (Tower tower in buploTowers)
+        {
+            tower.SetShooting(true);
+        }
+    }
+
+    public IEnumerator EnableBillitaryTowers_CR()
+    {
+        yield return new WaitForSeconds(secondsForEnablingTowers);
+        foreach (Tower tower in billitaryTowers)
         {
             tower.SetShooting(true);
         }
