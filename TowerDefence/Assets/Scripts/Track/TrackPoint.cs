@@ -7,5 +7,5 @@ public class TrackPoint : MonoBehaviour
     public int trackNumber;
     public TrackPoint nextTrack;
 
-   
+    public bool isEndTrack;
 }

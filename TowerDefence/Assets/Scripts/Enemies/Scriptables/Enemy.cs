@@ -37,6 +37,11 @@ public class Enemy : MonoBehaviour
 
                 trackPoint = trackPoint.nextTrack;
                 SetDir();
+
+                if (trackPoint.isEndTrack)
+                {
+                    Health.DecrementHealth(type);
+                }
             }
                 
         }
