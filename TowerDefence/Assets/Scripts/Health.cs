@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public static int health;
     private static bool hasChanged = false;
     [SerializeField] private Text healthCounter;
+    [SerializeField] private Text healthShadow;
 
     private DeathScreen deathScreen;
 
@@ -18,6 +19,7 @@ public class Health : MonoBehaviour
         health = (int)startHealth;
         
         healthCounter.text = health.ToString();
+        healthShadow.text = health.ToString();
 
         deathScreen = FindObjectOfType<DeathScreen>();
     }
@@ -29,6 +31,7 @@ public class Health : MonoBehaviour
             hasChanged = false;
 
             healthCounter.text = health.ToString();
+            healthShadow.text = health.ToString();
 
             if (health == 0)
             {
