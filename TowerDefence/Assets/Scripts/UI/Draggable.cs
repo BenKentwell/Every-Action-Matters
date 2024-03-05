@@ -21,6 +21,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	[Tooltip("The 'Slot' the object is ontop of before dragging")]
     private Transform originalParent;
+	public GameObject towerButton;
 
 	private void Start()
 	{
@@ -79,6 +80,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 			Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			
 			Instantiate(towerToSpawn,vec , quaternion.identity);
+			if(towerButton)
+			{
+				Destroy(towerButton);
+			}
 			Object.Destroy(this.gameObject);
 			return;
 				

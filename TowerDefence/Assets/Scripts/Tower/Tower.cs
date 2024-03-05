@@ -17,9 +17,17 @@ public enum eSpread
 [RequireComponent(typeof(SpriteRenderer))]
 public class Tower : MonoBehaviour
 {
-    public Sprite spriteSpread;
-    public Sprite spriteDirect;
-    public Sprite spriteArtillery;
+    public Sprite spriteSpreadBerf;
+    public Sprite spriteDirectBerf;
+    public Sprite spriteArtilleryBerf;
+     public Sprite spriteSpreadBartillery;
+    public Sprite spriteDirectBartillery;
+    public Sprite spriteArtilleryBartillery;
+     public Sprite spriteSpreadBuplo;
+    public Sprite spriteDirectBuplo;
+    public Sprite spriteArtillerybuplo;
+
+
     public GameObject projectileObject;
     public ProjectileSpawner projectileSpawner;
     public float shootDelay = 1;
@@ -29,27 +37,36 @@ public class Tower : MonoBehaviour
     public Coroutine shootCR;
     public float viewDistanceRadius = 2;
 
-    private List<Enemy> enemiesWithinRange = new();
+    public List<Enemy> enemiesWithinRange = new();
 
     // Start is called before the first frame update
     void Start()
     {
         projectileSpawner = GameObject.FindWithTag("ProjectileSpawner").GetComponent<ProjectileSpawner>();
         GetComponent<CircleCollider2D>().radius = viewDistanceRadius;
-        switch((int)spread)
-        {
-            case (int)eSpread.Spread:
+        if(spread == eSpread.Spread && damageType == eVulType.Berf)
+            GetComponent<SpriteRenderer>().sprite = spriteSpreadBerf;
+        if(spread == eSpread.Spread && damageType == eVulType.Billitary)
+            GetComponent<SpriteRenderer>().sprite = spriteSpreadBartillery;
+        if(spread == eSpread.Spread && damageType == eVulType.Buplo)
+            GetComponent<SpriteRenderer>().sprite = spriteSpreadBuplo;
 
-             GetComponent<SpriteRenderer>().sprite = spriteSpread;
-             break;
-             case (int)eSpread.Direct:
-             GetComponent<SpriteRenderer>().sprite = spriteDirect;
-             break;
-             case (int)eSpread.Artillery:
-             GetComponent<SpriteRenderer>().sprite = spriteArtillery;
-             break;
+        if(spread == eSpread.Direct && damageType == eVulType.Berf)
+            GetComponent<SpriteRenderer>().sprite = spriteDirectBerf;
+        if(spread == eSpread.Direct && damageType == eVulType.Billitary)
+            GetComponent<SpriteRenderer>().sprite = spriteDirectBartillery;
+        if(spread == eSpread.Direct && damageType == eVulType.Buplo)
+            GetComponent<SpriteRenderer>().sprite = spriteDirectBuplo;
 
-        }
+        if(spread == eSpread.Artillery && damageType == eVulType.Berf)
+            GetComponent<SpriteRenderer>().sprite = spriteArtilleryBerf;
+        if(spread == eSpread.Artillery && damageType == eVulType.Billitary)
+            GetComponent<SpriteRenderer>().sprite = spriteArtilleryBartillery;
+        if(spread == eSpread.Artillery && damageType == eVulType.Buplo)
+            GetComponent<SpriteRenderer>().sprite = spriteArtillerybuplo;    
+
+            
+       
         GetComponent<SpriteRenderer>().sortingOrder = 100;
         shootCR = StartCoroutine(Shoot_CR());
     }
@@ -90,8 +107,13 @@ public class Tower : MonoBehaviour
     public void Shoot(Enemy _enemy)
     {
         //This needs to find the object that is furtherst along the track, pop it and send a sprite in the direction
-       projectileSpawner.ShootNew(this, _enemy);
-        _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
+        if(_enemy != null)
+        {
+            projectileSpawner.ShootNew(this, _enemy);
+            _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
+            enemiesWithinRange.Remove(_enemy);
+        }
+
 
     }
     private void SetDirection()

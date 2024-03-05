@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7636231503400956543}
   - component: {fileID: 3903705980262870368}
   - component: {fileID: -129485922914408917}
-  - component: {fileID: 1045644350057426105}
-  - component: {fileID: 1244373005978721932}
+  - component: {fileID: 7488762158736933118}
+  - component: {fileID: 5470296444435089818}
   m_Layer: 0
-  m_Name: Tower 2
+  m_Name: BillitarySpread
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,16 +47,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4c5c5e8b353ac49a932be5fbf6fb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSpread: {fileID: -386022056, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
-  spriteDirect: {fileID: 1478765035, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
-  spriteArtillery: {fileID: -1201721238, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
+  spriteSpreadBerf: {fileID: 21300000, guid: 9f90eb9e03affd444b41363f4c776cee, type: 2}
+  spriteDirectBerf: {fileID: 21300000, guid: 99ee3497169b5ea4b9c9bbb39caff412, type: 2}
+  spriteArtilleryBerf: {fileID: 21300000, guid: 68ad1f72765b8ec4690d68eb0f9fc31d, type: 2}
+  spriteSpreadBartillery: {fileID: 21300000, guid: 759c449d8f28b9444b0c864394d1a241, type: 2}
+  spriteDirectBartillery: {fileID: 21300000, guid: 4e20abbdfa659f447ad1a525e829a2ee, type: 2}
+  spriteArtilleryBartillery: {fileID: 21300000, guid: 2db52056f775e2d43bdc3ac9f31becb6, type: 2}
+  spriteSpreadBuplo: {fileID: 21300000, guid: 03f560ecdf5bf1e4b82507df60a795ff, type: 2}
+  spriteDirectBuplo: {fileID: 21300000, guid: f221094ed52580844a4502610ada3859, type: 2}
+  spriteArtillerybuplo: {fileID: 21300000, guid: 417bc79386c1cfc48acc444bd707e1a0, type: 2}
   projectileObject: {fileID: 3278342981350384274, guid: bf1fc9bac25732346a28be2cd6a65230, type: 3}
   projectileSpawner: {fileID: 0}
   shootDelay: 1
   spread: 1
-  damageType: 1
+  damageType: 3
   target: {fileID: 0}
   viewDistanceRadius: 2
+  enemiesWithinRange: []
 --- !u!212 &-129485922914408917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109,7 +116,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1045644350057426105
+--- !u!58 &7488762158736933118
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +132,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &1244373005978721932
+--- !u!50 &5470296444435089818
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

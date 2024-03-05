@@ -37,7 +37,8 @@ public class EnemySpawner : MonoBehaviour
     }
  
 
-    public int CurrentWave(){
+    public int CurrentWave()
+    {
         return currentWave +1;
     }
 }

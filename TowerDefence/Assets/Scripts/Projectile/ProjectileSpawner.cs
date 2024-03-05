@@ -19,10 +19,31 @@ public class ProjectileSpawner : MonoBehaviour
         // porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
         // porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
 
-        Quaternion q = Quaternion.FromToRotation(_tower.transform.position, _enemy.transform.position);
-        GameObject porj = Instantiate(_tower.projectileObject, _tower.transform.position, q);
-        porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
-        porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
+        switch((eSpread)_tower.spread)
+        {
+            case eSpread.Direct:
+                Quaternion q = Quaternion.FromToRotation(_tower.transform.position, _enemy.transform.position);
+                GameObject porj = Instantiate(_tower.projectileObject, _tower.transform.position, q);
+                porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
+                porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
+            break;
+
+            // case eSpread.Spread:
+            //     Quaternion q = Quaternion.FromToRotation(_tower.transform.position, _enemy.transform.position);
+            //     GameObject porj = Instantiate(_tower.projectileObject, _tower.transform.position, q);
+            //     porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
+            //     porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
+            // break;
+
+            // case eSpread.Artillery:
+            //     Quaternion q = Quaternion.FromToRotation(_tower.transform.position, _enemy.transform.position);
+            //     GameObject porj = Instantiate(_tower.projectileObject, _tower.transform.position, q);
+            //     porj.GetComponent<ProjectileObject>().SetEndPoint(_enemy.transform.position);
+            //     porj.GetComponent<SpriteRenderer>().sortingOrder = 101;
+            // break;
+
+        }
+        
 
 
         
