@@ -10,10 +10,15 @@ public class DeathScreen : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject deathTab;
 
+    public Text deathText;
+    private EnemySpawner enemySpawner;
+
     public AudioMixer musicMixer;
 
     void Start()
     {
+        enemySpawner = FindObjectOfType<EnemySpawner>();
+        
         gameplayUI.SetActive(true);
         deathTab.SetActive(false);
 
@@ -26,6 +31,10 @@ public class DeathScreen : MonoBehaviour
 
         gameplayUI.SetActive(false);
         deathTab.SetActive(true);
+
+        string deathMessage = deathText.text.Replace("<Num>", enemySpawner.CurrentWave().ToString());
+
+        deathText.text = deathMessage;
 
         musicMixer.SetFloat("MusicLowpass", 600.00f);
     }

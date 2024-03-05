@@ -854,6 +854,7 @@ GameObject:
   - component: {fileID: 487989303}
   - component: {fileID: 487989302}
   - component: {fileID: 487989304}
+  - component: {fileID: 487989305}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: ProjectileSpawner
@@ -938,6 +939,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf798070296b08478684a0c3bc46375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &487989305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487989301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db07fdc97f45e24aadd53fd86ae2487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsForEnablingTowers: 2
 --- !u!1 &525682831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplayUI: {fileID: 131416311}
   deathTab: {fileID: 826707073}
+  deathText: {fileID: 1323063866}
   musicMixer: {fileID: 24100000, guid: e5e9b35fcf165504fa9386ee616abe67, type: 2}
 --- !u!114 &877968572
 MonoBehaviour:
