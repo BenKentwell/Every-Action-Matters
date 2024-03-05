@@ -27,7 +27,7 @@ public class EnemyWave : MonoBehaviour
         
     }
 
-        public IEnumerator Spawn_CR()
+    public IEnumerator Spawn_CR()
     {
         int i = 0;
         int iMax = enemies.Length;
