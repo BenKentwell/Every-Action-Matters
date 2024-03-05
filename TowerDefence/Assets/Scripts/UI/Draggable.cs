@@ -23,13 +23,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private Transform originalParent;
 	public GameObject towerButton;
 
+	private AudioSource audioSource;
+
 	private void Start()
 	{
 		GetComponent<Image>().sprite = spriteUI;
+		audioSource = GetComponent<AudioSource>();
 	}
 
     public void OnBeginDrag(PointerEventData _eventData)
 		{
+		audioSource.Play();
+		
 			if(originalParent == null){}
 
 			originalParent = transform.parent;
