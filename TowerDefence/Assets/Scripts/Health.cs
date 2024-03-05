@@ -40,7 +40,29 @@ public class Health : MonoBehaviour
 
     public static void DecrementHealth(EnemyType givenType)
     {
-        health -= givenType.type;
+        int damage;
+
+        switch(givenType.vulnerableType)
+        {
+            case eVulType.All:
+                damage = (int)givenType.type;
+                break;
+            case eVulType.Berf:
+                damage = (int)givenType.type - 8;
+                break;
+            case eVulType.Buplo:
+                damage = (int)givenType.type - 16;
+                break;
+            case eVulType.Billitary:
+                damage = (int)givenType.type - 24;
+                break;
+            default:
+                damage = 0;
+                Debug.LogError("Invalid Vulnerable Type for Decrement Health. Debug Immediately!");
+                break;
+        }
+
+        health -= damage;
 
         if (health < 0)
             health = 0;

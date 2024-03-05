@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28a143f3aa6842e4a836c08c56477b79, type: 3}
-  m_Name: 2a-Yellow
+  m_Name: A7-Black
   m_EditorClassIdentifier: 
-  type: 2
-  typeToTransition: 1
+  type: 0
+  typeToTransition: 0
   vulnerableType: 0
-  texture: {fileID: -153581439, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
-  speed: 2
+  texture: {fileID: -124029746, guid: 5b5700cfec7d9b849884b931fe20db15, type: 3}
+  speed: 0

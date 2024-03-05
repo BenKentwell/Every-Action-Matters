@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28a143f3aa6842e4a836c08c56477b79, type: 3}
-  m_Name: 4a-Green
+  m_Name: A3-Blue
   m_EditorClassIdentifier: 
-  type: 4
-  typeToTransition: 3
+  type: 3
+  typeToTransition: 2
   vulnerableType: 0
-  texture: {fileID: -586951688, guid: c77819ef1bf295e4ea07faa2bd9b71ba, type: 3}
-  speed: 3
+  texture: {fileID: -10008388, guid: 5b5700cfec7d9b849884b931fe20db15, type: 3}
+  speed: 2.5
