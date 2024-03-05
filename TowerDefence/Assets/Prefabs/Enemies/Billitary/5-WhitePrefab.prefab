@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5757aaf174e3db40981fa6aaba6d4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: 0d654809f7336ab4685cf70ffdb19681, type: 2}
+  type: {fileID: 11400000, guid: 5588013661e7bc749bf95bfe397aa4c2, type: 2}
   trackPoint: {fileID: 0}
   direction: {x: 0, y: 0}
   renderer: {fileID: 6191236484136567958}

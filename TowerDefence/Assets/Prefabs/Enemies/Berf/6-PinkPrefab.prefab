@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5942460463091110791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5757aaf174e3db40981fa6aaba6d4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: 025e50db9b0dcc64094cce694820ae81, type: 2}
+  type: {fileID: 11400000, guid: 9581c6a87609feb4aadbd2e1cf8d9c2f, type: 2}
   trackPoint: {fileID: 0}
   direction: {x: 0, y: 0}
   renderer: {fileID: 6191236484136567958}

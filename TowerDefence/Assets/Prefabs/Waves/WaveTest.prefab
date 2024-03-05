@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
-  - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
-  enemyCount: 0500000005000000
+  - {fileID: 6230660767915981848, guid: 288c5faa218d15e498cf568ec8cf7eeb, type: 3}
+  - {fileID: 6230660767915981848, guid: 8644875b7e2e0394ea33074ead86ecfc, type: 3}
+  - {fileID: 6230660767915981848, guid: df115a6709470d44dba09548993c6c10, type: 3}
+  - {fileID: 6230660767915981848, guid: 58df702b6634de64482513bb7320afb0, type: 3}
+  enemyCount: 01000000010000000100000001000000
   curve:
     serializedVersion: 2
     m_Curve:
