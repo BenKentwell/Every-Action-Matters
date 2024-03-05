@@ -110,8 +110,34 @@ public class Tower : MonoBehaviour
         if(_enemy != null)
         {
             projectileSpawner.ShootNew(this, _enemy);
-            _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
-            enemiesWithinRange.Remove(_enemy);
+            switch((int)spread){
+                case (int)eSpread.Direct:
+                    _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
+                    enemiesWithinRange.Remove(_enemy);
+                break;
+
+                case (int)eSpread.Artillery:
+                     Collider2D[] results = new Collider2D[7];
+                     ContactFilter2D filter2D = new ContactFilter2D();
+                     filter2D.NoFilter();
+                    int objects = Physics2D.OverlapCircle(_enemy.transform.position, 0.5f,filter2D, results );
+                    if(objects > 0)
+                    {
+                        for(int i = 0; i < objects; i++)
+                        {   
+                            if(results[i].gameObject.GetComponent<Enemy>())
+                            {
+                                results[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
+                                if(enemiesWithinRange.Contains(results[i].gameObject.GetComponent<Enemy>()))
+                                    enemiesWithinRange.Remove(results[i].gameObject.GetComponent<Enemy>());
+                            }
+                            
+                        }
+                    }
+                break;
+
+            }
+            
         }
 
 
