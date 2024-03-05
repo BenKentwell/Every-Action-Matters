@@ -31,6 +31,8 @@ public class GameEndScreens : MonoBehaviour
 
     private void Update()
     {
+        Debug.LogWarning("Update in GameEndScreens is active! Disable for build!");
+        
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             OpenWinScreen();
