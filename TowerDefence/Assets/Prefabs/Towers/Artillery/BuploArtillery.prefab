@@ -64,6 +64,9 @@ MonoBehaviour:
   target: {fileID: 0}
   viewDistanceRadius: 2
   enemiesWithinRange: []
+  towerManager: {fileID: 0}
+  isEnabledToShoot: 0
+  hitAudio: {fileID: 8300000, guid: f39375b4c20d0a644b78b49b0429fddd, type: 3}
 --- !u!212 &-129485922914408917
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 4837705899314727419, guid: b196018bdf397704498af8e8d390b0fd, type: 3}
+  - {fileID: 4837705899314727419, guid: 13f13e667726a044c8090e4390700e4c, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:

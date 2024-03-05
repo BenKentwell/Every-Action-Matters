@@ -41,11 +41,15 @@ public class Tower : MonoBehaviour
     public TowerManager towerManager;
     public bool isEnabledToShoot;
 
+    public AudioClip hitAudio;
+    private AudioSource sfxManager;
+
     // Start is called before the first frame update
     void Start()
     {
         projectileSpawner = GameObject.FindWithTag("ProjectileSpawner").GetComponent<ProjectileSpawner>();
         towerManager = GameObject.FindWithTag("ProjectileSpawner").GetComponent<TowerManager>();
+        sfxManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioSource>();
         
         GetComponent<CircleCollider2D>().radius = viewDistanceRadius;
         if(spread == eSpread.Spread && damageType == eVulType.Berf)
@@ -119,8 +123,8 @@ public class Tower : MonoBehaviour
             switch((int)spread)
             {
                 case (int)eSpread.Direct:
+                    sfxManager.PlayOneShot(hitAudio);
                     _enemy.gameObject.GetComponent<EnemyTransition>().Break(damageType);
-                    _enemy.gameObject.GetComponent<AudioSource>().Play();
                     enemiesWithinRange.Remove(_enemy);
                 break;
 
@@ -135,8 +139,8 @@ public class Tower : MonoBehaviour
                         {   
                             if(results[i].gameObject.GetComponent<Enemy>())
                             {
+                                sfxManager.PlayOneShot(hitAudio);
                                 results[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
-                                results[i].gameObject.GetComponent<AudioSource>().Play();
 
                                 if(enemiesWithinRange.Contains(results[i].gameObject.GetComponent<Enemy>()))
                                     enemiesWithinRange.Remove(results[i].gameObject.GetComponent<Enemy>());
@@ -152,8 +156,8 @@ public class Tower : MonoBehaviour
                         max = enemiesWithinRange.Count -1;
                     for(int i = max; i >= 0; i--)
                     {
+                        sfxManager.PlayOneShot(hitAudio);
                         enemiesWithinRange[i].gameObject.GetComponent<EnemyTransition>().Break(damageType);
-                        enemiesWithinRange[i].gameObject.GetComponent<AudioSource>().Play();    
                         enemiesWithinRange.Remove(enemiesWithinRange[i].gameObject.GetComponent<Enemy>());
                     }
                     Debug.Log($"spread shot {max} babooshkas");
