@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Text healthCounter;
     [SerializeField] private Text healthShadow;
 
-    private DeathScreen deathScreen;
+    private GameEndScreens gameEndScreens;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         healthCounter.text = health.ToString();
         healthShadow.text = health.ToString();
 
-        deathScreen = FindObjectOfType<DeathScreen>();
+        gameEndScreens = FindObjectOfType<GameEndScreens>();
     }
 
     void Update()
@@ -35,8 +35,7 @@ public class Health : MonoBehaviour
 
             if (health == 0)
             {
-                Time.timeScale = 0f;
-                deathScreen.OpenDeathScreen();
+                gameEndScreens.OpenDeathScreen();
             }
         }
     }

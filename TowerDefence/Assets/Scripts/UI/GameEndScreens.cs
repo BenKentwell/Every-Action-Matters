@@ -5,13 +5,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class DeathScreen : MonoBehaviour
+public class GameEndScreens : MonoBehaviour
 {
     public GameObject gameplayUI;
     public GameObject deathTab;
+    public GameObject winTab;
 
     public Text deathText;
     private EnemySpawner enemySpawner;
+
+    public Text winText;
 
     public AudioMixer musicMixer;
 
@@ -21,20 +24,54 @@ public class DeathScreen : MonoBehaviour
         
         gameplayUI.SetActive(true);
         deathTab.SetActive(false);
+        winTab.SetActive(false);
 
         musicMixer.SetFloat("MusicLowpass", 22000.00f);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            OpenWinScreen();
+        }
     }
 
     public void OpenDeathScreen()
     {
         Debug.Log("Death!");
 
+        Time.timeScale = 0f;
+
         gameplayUI.SetActive(false);
         deathTab.SetActive(true);
+        winTab.SetActive(false);
 
         string deathMessage = deathText.text.Replace("<Num>", enemySpawner.CurrentWave().ToString());
 
         deathText.text = deathMessage;
+
+        musicMixer.SetFloat("MusicLowpass", 600.00f);
+    }
+
+    public void OpenWinScreen()
+    {
+        Debug.Log("Win!");
+
+        Time.timeScale = 0f;
+
+        gameplayUI.SetActive(false);
+        deathTab.SetActive(false);
+        winTab.SetActive(true);
+
+        string winMessage = winText.text.Replace("<Num>", Health.health.ToString());
+
+        if (Health.health <= 1)
+        {
+            winMessage = winMessage.Replace("hearts!", "heart.\nClose one!");
+        }
+
+        winText.text = winMessage;
 
         musicMixer.SetFloat("MusicLowpass", 600.00f);
     }
