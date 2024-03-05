@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public static int health = 20;
+    public uint startHealth = 100;
+    
+    public static int health;
     private static bool hasChanged = false;
     [SerializeField] private Text healthCounter;
 
+    private DeathScreen deathScreen;
+
     void Start()
     {
+        health = (int)startHealth;
+        
         healthCounter.text = health.ToString();
+
+        deathScreen = FindObjectOfType<DeathScreen>();
     }
 
     void Update()
@@ -24,7 +32,8 @@ public class Health : MonoBehaviour
 
             if (health == 0)
             {
-                Debug.Log("You dead!");
+                Time.timeScale = 0f;
+                deathScreen.OpenDeathScreen();
             }
         }
     }
