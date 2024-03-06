@@ -22,7 +22,7 @@ public class WaveCounter : MonoBehaviour
 
     void Update()
     {
-        string update = spawner.currentWave + waveTotalText;
+        string update = (spawner.currentWave + 1) + waveTotalText;
 
         ReplaceTextStrings(update);
     }

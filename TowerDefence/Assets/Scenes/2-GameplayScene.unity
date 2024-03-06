@@ -1124,6 +1124,7 @@ MonoBehaviour:
   - {fileID: 4837705899314727419, guid: 13f13e667726a044c8090e4390700e4c, type: 3}
   - {fileID: 4837705899314727419, guid: 5debe93ef651e9b4d865ac0454e14ceb, type: 3}
   - {fileID: 4837705899314727419, guid: 7580935c9e204034895dd75a32223019, type: 3}
+  - {fileID: 4837705899314727419, guid: 4473f44691018444485487ab0de48efc, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -1280,7 +1281,7 @@ MonoBehaviour:
   directButton: {fileID: 7135580293486690396, guid: e84d4050328fca647ba02f6452051f9b, type: 3}
   spreadButton: {fileID: 7135580293486690396, guid: ef27c59823507464da2b89a184b4cf4d, type: 3}
   artilleryButton: {fileID: 7135580293486690396, guid: 3e89d23bb8471bf4eb89150c8cf35dd2, type: 3}
-  cardDelaySeconds: 5
+  cardDelaySeconds: 8
 --- !u!4 &645379157
 Transform:
   m_ObjectHideFlags: 0

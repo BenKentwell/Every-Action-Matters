@@ -42,7 +42,7 @@ public class TowerCards : MonoBehaviour
 
             CheckForNullButtons();
             
-            if(buttonsInChest.Count <= 7)
+            if(buttonsInChest.Count < 7)
             {
                 SpawnNewCard();
 
@@ -103,20 +103,5 @@ public class TowerCards : MonoBehaviour
         }
 
         return outputList;
-    }
-
-    public List<GameObject> ReturnCurrentCardList()
-    {
-        return buttonsInChest;
-    }
-
-    public void SetCurrentCardList(List<GameObject> newList)
-    {
-        buttonsInChest.Clear();
-
-        foreach(var item in newList)
-        {
-            buttonsInChest.Add(item);
-        }
     }
 }

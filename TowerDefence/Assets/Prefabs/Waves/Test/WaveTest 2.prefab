@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1602604138285329032}
   - component: {fileID: 4837705899314727419}
   m_Layer: 0
-  m_Name: Wave 3
+  m_Name: WaveTest 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,29 +45,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
   - {fileID: 6230660767915981848, guid: 281a43a383445ea438ffef923e72d404, type: 3}
   - {fileID: 6230660767915981848, guid: 4b041519e23bdb64f9a99cef87b07e95, type: 3}
-  enemyCount: 0c00000003000000
+  - {fileID: 6230660767915981848, guid: 5f90dfc2727626b4884c5ee741a65267, type: 3}
+  - {fileID: 6230660767915981848, guid: 288c5faa218d15e498cf568ec8cf7eeb, type: 3}
+  - {fileID: 6230660767915981848, guid: ac24f4db38687194187c02f0603c39e7, type: 3}
+  - {fileID: 6230660767915981848, guid: 59231859c9dd5f84ea2599068422bbb9, type: 3}
+  - {fileID: 6230660767915981848, guid: 918af6fbe93d5a346952c5bdd407f634, type: 3}
+  enemyCount: 0300000003000000030000000300000003000000030000000300000003000000
   curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.008331299
-      value: 0.9653168
-      inSlope: 0.1132874
-      outSlope: 0.1132874
-      tangentMode: 0
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.16941981
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.994812
-      inSlope: 0.009131432
-      outSlope: 0.009131432
-      tangentMode: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.3842983
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -75,4 +81,4 @@ MonoBehaviour:
   startPoint: {fileID: 0}
   spawner: {fileID: 0}
   transitionManager: {fileID: 0}
-  maximumSeconds: 1
+  maximumSeconds: 0.2

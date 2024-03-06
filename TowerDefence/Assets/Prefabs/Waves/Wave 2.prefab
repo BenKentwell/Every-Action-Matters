@@ -47,27 +47,27 @@ MonoBehaviour:
   enemies:
   - {fileID: 7185652158895759845, guid: 0ed109ca95011364ebd91cc8020b5aee, type: 3}
   - {fileID: 6230660767915981848, guid: 281a43a383445ea438ffef923e72d404, type: 3}
-  enemyCount: 0300000003000000
+  enemyCount: 0500000005000000
   curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: -0.0083351135
+      value: 0.986084
+      inSlope: -0.00046526812
+      outSlope: -0.00046526812
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 1.0083313
+      value: 0.98561096
+      inSlope: -0.00046526812
+      outSlope: -0.00046526812
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

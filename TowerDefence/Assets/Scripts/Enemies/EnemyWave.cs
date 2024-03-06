@@ -46,7 +46,7 @@ public class EnemyWave : MonoBehaviour
             
         }
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2);
 
 
         spawner.StartNextWave();
