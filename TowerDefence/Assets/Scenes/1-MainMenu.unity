@@ -12329,6 +12329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1082673740}
   tutorialTab: {fileID: 747892736}
+  cursorTexture: {fileID: 0}
 --- !u!4 &499827357
 Transform:
   m_ObjectHideFlags: 0
@@ -20272,7 +20273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: boss enemies
+  m_Text: Multipliers
 --- !u!222 &1802172012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21332,7 +21333,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: boss enemies
+  m_Text: Multipliers
 --- !u!222 &2032452697
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1125,6 +1125,9 @@ MonoBehaviour:
   - {fileID: 4837705899314727419, guid: 5debe93ef651e9b4d865ac0454e14ceb, type: 3}
   - {fileID: 4837705899314727419, guid: 7580935c9e204034895dd75a32223019, type: 3}
   - {fileID: 4837705899314727419, guid: 4473f44691018444485487ab0de48efc, type: 3}
+  - {fileID: 4837705899314727419, guid: f0e0f3cfd7263244e87aa576e451d353, type: 3}
+  - {fileID: 4837705899314727419, guid: 4401569a64309324eac833b1bb99f531, type: 3}
+  - {fileID: 4837705899314727419, guid: 5a476229c97f65045a9ea43fef4f970e, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:
