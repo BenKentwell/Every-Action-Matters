@@ -23,8 +23,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	public AudioClip onDragSound;
 	public AudioClip onPlaceSound;
-	
-	private AudioSource audioSource;
+    [SerializeField] private GameObject childImage;
+    private AudioSource audioSource;
 
 	private void Start()
 	{
@@ -49,7 +49,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		transform.SetAsLastSibling();
 
 		Dragging = true;
-	}
+        childImage.SetActive(true);
+    }
 
 	public void OnDrag(PointerEventData _eventData)
 	{
@@ -65,7 +66,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	public void OnEndDrag(PointerEventData _eventData)
 	{
-		Dragging = false;
+        childImage.SetActive(false);
+        Dragging = false;
 		transform.SetParent(originalParent);
 		transform.localPosition = Vector3.zero;
 		// List<RaycastResult> results = new();
