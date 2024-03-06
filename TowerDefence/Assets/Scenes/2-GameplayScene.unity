@@ -1128,6 +1128,9 @@ MonoBehaviour:
   - {fileID: 4837705899314727419, guid: f0e0f3cfd7263244e87aa576e451d353, type: 3}
   - {fileID: 4837705899314727419, guid: 4401569a64309324eac833b1bb99f531, type: 3}
   - {fileID: 4837705899314727419, guid: 5a476229c97f65045a9ea43fef4f970e, type: 3}
+  - {fileID: 4837705899314727419, guid: c11ef1015100fa948a42eace5a0335e8, type: 3}
+  - {fileID: 4837705899314727419, guid: b38346e039d1ca94aa83a57701dfb7ee, type: 3}
+  - {fileID: 4837705899314727419, guid: db08e3d060c4e7243a2b8e9addfb4668, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -1284,7 +1287,7 @@ MonoBehaviour:
   directButton: {fileID: 7135580293486690396, guid: e84d4050328fca647ba02f6452051f9b, type: 3}
   spreadButton: {fileID: 7135580293486690396, guid: ef27c59823507464da2b89a184b4cf4d, type: 3}
   artilleryButton: {fileID: 7135580293486690396, guid: 3e89d23bb8471bf4eb89150c8cf35dd2, type: 3}
-  cardDelaySeconds: 8
+  cardDelaySeconds: 15
 --- !u!4 &645379157
 Transform:
   m_ObjectHideFlags: 0
@@ -1972,7 +1975,7 @@ GameObject:
   - component: {fileID: 877968571}
   - component: {fileID: 877968572}
   m_Layer: 0
-  m_Name: HealthManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

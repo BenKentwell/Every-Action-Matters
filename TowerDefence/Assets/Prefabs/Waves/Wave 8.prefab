@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1602604138285329032}
   - component: {fileID: 4837705899314727419}
   m_Layer: 0
-  m_Name: Wave 7
+  m_Name: Wave 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,48 +45,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 6230660767915981848, guid: 288c5faa218d15e498cf568ec8cf7eeb, type: 3}
-  - {fileID: 6230660767915981848, guid: 5f90dfc2727626b4884c5ee741a65267, type: 3}
-  - {fileID: 6230660767915981848, guid: f4721684e0a7e7648b946f41c9cf13e6, type: 3}
+  - {fileID: 6230660767915981848, guid: ac24f4db38687194187c02f0603c39e7, type: 3}
+  - {fileID: 6230660767915981848, guid: 59231859c9dd5f84ea2599068422bbb9, type: 3}
+  - {fileID: 6230660767915981848, guid: 86d336d43ef129240951cf2572b47af3, type: 3}
+  - {fileID: 6230660767915981848, guid: 245a9cee90deec24995f3e668b27c12e, type: 3}
+  - {fileID: 6230660767915981848, guid: fb87d3fcf53c5da4ca6347df908a8fb3, type: 3}
   - {fileID: 6230660767915981848, guid: 70aaa634c9ed30045930c8fbdbe56329, type: 3}
+  - {fileID: 6230660767915981848, guid: f4721684e0a7e7648b946f41c9cf13e6, type: 3}
   - {fileID: 6230660767915981848, guid: 6b1c650ec61926b4cba965007f01a331, type: 3}
-  - {fileID: 6230660767915981848, guid: 281a43a383445ea438ffef923e72d404, type: 3}
-  enemyCount: 0a0000000600000004000000040000000400000014000000
+  enemyCount: 0a000000050000000300000003000000030000000a0000000a0000000a000000
   curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0041656494
-      value: 0.967453
-      inSlope: -0.029829582
-      outSlope: -0.029829582
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.76263297
-      value: 0.9445797
-      inSlope: -0.027628347
-      outSlope: -0.027628347
+      time: 0.04086685
+      value: 0.84542847
+      inSlope: -0.011894697
+      outSlope: -0.011894697
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.36161098
+      inWeight: 0
+      outWeight: 0.76936686
+    - serializedVersion: 3
+      time: 0.5679804
+      value: 0.8392019
+      inSlope: -0.015104884
+      outSlope: -0.015104884
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.99163723
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.83693784
-      value: 0.91577965
-      inSlope: -0.011106197
-      outSlope: -0.011106197
+      time: 0.69540757
+      value: 0.6399613
+      inSlope: -0.017871894
+      outSlope: -0.017871894
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 1
+      outWeight: 0.6625229
     - serializedVersion: 3
-      time: 0.9999695
-      value: 0.9143982
-      inSlope: -0.008473551
-      outSlope: -0.008473551
+      time: 1.2300415
+      value: 0.6260681
+      inSlope: -0.025986355
+      outSlope: -0.025986355
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
