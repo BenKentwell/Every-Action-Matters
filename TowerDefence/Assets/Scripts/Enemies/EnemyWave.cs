@@ -41,7 +41,10 @@ public class EnemyWave : MonoBehaviour
             Enemy enemy = Instantiate(enemies[en], startPoint.transform.position, transform.rotation);
             enemy.trackPoint = startPoint.nextTrack;
             enemy.gameObject.GetComponent<EnemyTransition>().transitionManager = transitionManager;
-
+            if(coun == enemyCount[en]-1 && en == enemies.Count() - 1)
+                {
+                    spawner.lastEnemyOfGame = enemy;
+                }
             }
             
         }
