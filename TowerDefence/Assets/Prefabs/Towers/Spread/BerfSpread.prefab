@@ -154,7 +154,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 75bb2e4fe6d5f974a8709c842a0282e1, type: 3}
   projectileObject: {fileID: 3278342981350384274, guid: bf1fc9bac25732346a28be2cd6a65230, type: 3}
   projectileSpawner: {fileID: 0}
-  shootDelay: 1
+  shootDelay: 2
   spread: 1
   damageType: 1
   target: {fileID: 0}
