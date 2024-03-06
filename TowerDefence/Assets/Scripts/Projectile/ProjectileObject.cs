@@ -15,13 +15,16 @@ public class ProjectileObject : MonoBehaviour
         //damage = projectileScriptable + Bonus
         renderer = GetComponent<SpriteRenderer>();
         renderer.sprite = projectileScriptable.texture;
+        transform.localScale *= projectileScriptable.size;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.up * projectileScriptable.speed * Time.deltaTime);
-        if(Vector2.Distance(transform.position, endPoint) < 0.2f)
+        Vector2 dir = endPoint - transform.position ;
+        dir.Normalize();
+        transform.Translate(dir * projectileScriptable.speed * Time.deltaTime);
+        if(Vector2.Distance(transform.position, endPoint) < 0.5f)
             Destroy(gameObject);
     }
 

@@ -8,6 +8,6 @@ public class Projectile : ScriptableObject
 {
     public int damageType;
     [Tooltip("Speed per second the bullet  will move")]public float speed;
-    [Tooltip("Scalar value , 0 to Infinity")]public int size;
+    [Tooltip("Scalar value , 0 to Infinity")]public float size;
     public Sprite texture;
 }

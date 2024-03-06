@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1d1f7bdd5a7c75488177c7ecf63acbe, type: 3}
-  m_Name: Fire
+  m_Name: Large
   m_EditorClassIdentifier: 
   damageType: 1
-  speed: 50
+  speed: 25
   size: 1
   texture: {fileID: 134860156, guid: 97835fb1759d0dd44aee6a1af665f661, type: 3}
