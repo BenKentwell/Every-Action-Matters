@@ -8,8 +8,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject tutorialTab;
 
+    [SerializeField] private Texture2D cursorTexture;
+
     public void Start()
     {
+        Cursor.SetCursor(cursorTexture, new Vector2(2, 1), CursorMode.Auto);
         CloseTutorial();
     }
 
