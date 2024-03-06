@@ -29,16 +29,6 @@ public class GameEndScreens : MonoBehaviour
         musicMixer.SetFloat("MusicLowpass", 22000.00f);
     }
 
-    private void Update()
-    {
-        Debug.LogWarning("Update in GameEndScreens is active! Disable for build!");
-        
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            OpenWinScreen();
-        }
-    }
-
     public void OpenDeathScreen()
     {
         Debug.Log("Death!");

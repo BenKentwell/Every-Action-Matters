@@ -92,7 +92,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		
 		audioSource.clip = onPlaceSound;
 		audioSource.Play();
-
+		
 		if(towerButton)
 		{
 			Destroy(towerButton);

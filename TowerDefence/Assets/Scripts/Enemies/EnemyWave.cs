@@ -45,7 +45,10 @@ public class EnemyWave : MonoBehaviour
             }
             
         }
-       
-       spawner.StartNextWave();
+
+        yield return new WaitForSeconds(5f);
+
+
+        spawner.StartNextWave();
     }
 }

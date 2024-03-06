@@ -16,6 +16,8 @@ public class TowerCards : MonoBehaviour
     private List<GameObject> baseButtonSpawnPool = new();
     private List<GameObject> currentSpawnPool = new();
 
+    private List<GameObject> buttonsInChest = new();
+
     private bool isActivated = true;
 
     void Start()
@@ -30,13 +32,40 @@ public class TowerCards : MonoBehaviour
 
     private IEnumerator SpawnCardDelay()
     {
+        currentSpawnPool = RandomisedBaseSpawnPool();
+        
         SpawnNewCard();
 
         while (isActivated)
         {
             yield return new WaitForSeconds(cardDelaySeconds);
-            //if(buttonsInChest.Count < max)
-            SpawnNewCard();
+
+            CheckForNullButtons();
+            
+            if(buttonsInChest.Count <= 7)
+            {
+                SpawnNewCard();
+
+                Debug.Log("Current buttons: " + buttonsInChest.Count);
+            }
+        }
+    }
+
+    private void CheckForNullButtons()
+    {
+        List<int> indexes = new();
+
+        for (int i = 0; i < buttonsInChest.Count - 1; i++)
+        {
+            if (buttonsInChest[i] == null)
+            {
+                indexes.Add(i);
+            }
+        }
+
+        foreach (int index in indexes)
+        {
+            buttonsInChest.RemoveAt(index);
         }
     }
     
@@ -49,12 +78,20 @@ public class TowerCards : MonoBehaviour
 
         var newCard = Instantiate(currentSpawnPool[0], cardUIParent);
 
+        buttonsInChest.Add(newCard);
+
         currentSpawnPool.RemoveAt(0);
     }
     
     private List<GameObject> RandomisedBaseSpawnPool()
     {
-        List<GameObject> refList = baseButtonSpawnPool;
+        List<GameObject> refList = new();
+
+        foreach (var item in baseButtonSpawnPool)
+        {
+            refList.Add(item);
+        }
+
         List<GameObject> outputList = new();
         
         for (int i = 0; i < baseButtonSpawnPool.Count - 1; i++)
@@ -66,5 +103,20 @@ public class TowerCards : MonoBehaviour
         }
 
         return outputList;
+    }
+
+    public List<GameObject> ReturnCurrentCardList()
+    {
+        return buttonsInChest;
+    }
+
+    public void SetCurrentCardList(List<GameObject> newList)
+    {
+        buttonsInChest.Clear();
+
+        foreach(var item in newList)
+        {
+            buttonsInChest.Add(item);
+        }
     }
 }
