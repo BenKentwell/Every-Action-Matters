@@ -7,11 +7,13 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject tutorialTab;
+    [SerializeField] private GameObject settingsTab;
 
 
     public void Start()
     {
         CloseTutorial();
+        CloseSettings();
     }
 
     public void StartGame()
@@ -31,6 +33,18 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(true);
         tutorialTab.SetActive(false);
+    }
+
+    public void OpenSettings()
+    {
+        mainMenu.SetActive(false);
+        settingsTab.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        mainMenu.SetActive(true);
+        settingsTab.SetActive(false);
     }
 
     public void QuitGame()

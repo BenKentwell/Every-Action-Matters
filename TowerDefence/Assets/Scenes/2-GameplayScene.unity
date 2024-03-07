@@ -396,7 +396,7 @@ AudioSource:
   m_GameObject: {fileID: 226808331}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6895635251701502620, guid: e5e9b35fcf165504fa9386ee616abe67, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1165,6 +1165,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   startPoint: {fileID: 525682832}
+  lastEnemyOfGame: {fileID: 0}
+  endgameScreens: {fileID: 0}
   transitionManager: {fileID: 1798634470}
   currentWave: 0
 --- !u!4 &487989303

@@ -18,6 +18,28 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-6230754403337321413
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4ae055702005c2349bc1d921d0fcda13
+  m_EffectName: Compressor
+  m_MixLevel: 14ef736e623be0044b17cdf5bba782bc
+  m_Parameters:
+  - m_ParameterName: Threshold
+    m_GUID: 87ce828d6564e2840b64ee1b50ac40f1
+  - m_ParameterName: Attack
+    m_GUID: 636d1c011de040840868166688189541
+  - m_ParameterName: Release
+    m_GUID: f3a3f0de17e81c045b49eac8737f4f38
+  - m_ParameterName: Make up gain
+    m_GUID: 4ee142320c46ac0448dd9aa196e7be33
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -34,8 +56,12 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 75162d995143f2449972e5b77a5578fc
+    name: MusicVolume
   - guid: d254fce4196db3a4f8c28f187d5181d9
     name: MusicLowpass
+  - guid: f1b1c67cad81f3147b39928d08184552
+    name: SFXVolume
   m_AudioMixerGroupViews:
   - guids:
     - b35369dee3fd37a499aeafba15b63fdd
@@ -89,7 +115,13 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 058d15df5d8d6544f84ff80593abf68a
   m_FloatValues:
+    636d1c011de040840868166688189541: 10
     d254fce4196db3a4f8c28f187d5181d9: 22000
+    75162d995143f2449972e5b77a5578fc: 6.7923827
+    f1b1c67cad81f3147b39928d08184552: 0.13552584
+    87ce828d6564e2840b64ee1b50ac40f1: -16
+    f3a3f0de17e81c045b49eac8737f4f38: 20
+    42ea95de7b07fbb4590bb37fb8eefa10: -7.8940816
   m_TransitionOverrides: {}
 --- !u!244 &19589736834751124
 AudioMixerEffectController:
@@ -154,6 +186,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 19589736834751124}
+  - {fileID: -6230754403337321413}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
