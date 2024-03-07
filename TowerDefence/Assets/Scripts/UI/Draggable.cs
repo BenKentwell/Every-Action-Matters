@@ -66,31 +66,35 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	public void OnEndDrag(PointerEventData _eventData)
 	{
+		audioSource.Stop();
         childImage.SetActive(false);
         Dragging = false;
 		transform.SetParent(originalParent);
 		transform.localPosition = Vector3.zero;
-		// List<RaycastResult> results = new();
-
-		// EventSystem.current.RaycastAll(_eventData, results);
-
-		// foreach(RaycastResult result in results)
-		// {
-		// 	if(!result.gameObject.CompareTag("Road"))
-		// 	{
-		// 		Instantiate(towerToSpawn, result., quaternion.identity);
-		// 		Object.Destroy(this.gameObject);
-		// 	}
-		// 		return;
-		// }
-
-			
+		
 		RaycastHit hit = new();
 		Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			
+		//Check if tower can be placed. not ontop of roads or other towers
+		//if(cannotplace)
+		Collider2D[] results = new Collider2D[7];
+        ContactFilter2D filter2D = new ContactFilter2D();
+        filter2D.NoFilter();
+        int objects = Physics2D.OverlapCircle(vec, 0.5f,filter2D, results );
+        if(objects > 0)
+        {
+			foreach(Collider2D coll in results)
+			{
+				if(coll.gameObject.CompareTag("Placed"))
+				{
+					return;
+				}
+			}
+		}
+
 		Instantiate(towerToSpawn,vec , quaternion.identity);
 
-		audioSource.Stop();
+		
 		
 		audioSource.clip = onPlaceSound;
 		audioSource.Play();
