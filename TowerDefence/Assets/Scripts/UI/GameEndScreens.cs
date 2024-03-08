@@ -50,7 +50,7 @@ public class GameEndScreens : MonoBehaviour
     {
         Debug.Log("Win!");
 
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
 
         gameplayUI.SetActive(false);
         deathTab.SetActive(false);
@@ -70,10 +70,12 @@ public class GameEndScreens : MonoBehaviour
 
     public void RestartLevel()
     {
+        
         Time.timeScale = 1;
         
         Debug.Log("Restarting");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("2-GameplayScene");
     }
 
     public void ExitButton()

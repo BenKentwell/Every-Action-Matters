@@ -57,11 +57,32 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		if(Dragging)
 		{
 			transform.position = _eventData.position;
+			RaycastHit hit = new();
+			Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			
+		//Check if tower can be placed. not ontop of roads or other towers
+		//if(cannotplace)
+		List<Collider2D> results = new List<Collider2D>();
+        ContactFilter2D filter2D = new ContactFilter2D();
+        filter2D.NoFilter();
+        int objects = Physics2D.OverlapCircle(vec, 0.5f,filter2D, results );
+        if(objects > 0)
+        {
+			foreach(Collider2D coll in results)
+			{
+				if(coll.gameObject.CompareTag("Placed"))
+					{
+						childImage.GetComponent<Image>().color = new Color(0.8f,0.2f,0.2f,1);
+						return;
+					}
+				}
+			}		
 		}
+		childImage.GetComponent<Image>().color = Color.white;
 	}
 	private void Update()
 	{
-		Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		
 	}
 
 	public void OnEndDrag(PointerEventData _eventData)

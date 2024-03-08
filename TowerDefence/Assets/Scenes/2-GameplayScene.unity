@@ -1193,7 +1193,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startPoint: {fileID: 525682832}
   lastEnemyOfGame: {fileID: 0}
-  endgameScreens: {fileID: 0}
+  endgameScreens: {fileID: 877968571}
   transitionManager: {fileID: 1798634470}
   currentWave: 0
 --- !u!4 &487989303
@@ -1670,7 +1670,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 877968571}
-        m_TargetAssemblyTypeName: DeathScreen, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameEndScreens, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
