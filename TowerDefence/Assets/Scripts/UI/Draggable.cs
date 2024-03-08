@@ -77,7 +77,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 			
 		//Check if tower can be placed. not ontop of roads or other towers
 		//if(cannotplace)
-		Collider2D[] results = new Collider2D[7];
+		List<Collider2D> results = new List<Collider2D>();
         ContactFilter2D filter2D = new ContactFilter2D();
         filter2D.NoFilter();
         int objects = Physics2D.OverlapCircle(vec, 0.5f,filter2D, results );
