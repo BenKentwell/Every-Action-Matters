@@ -94,13 +94,20 @@ public class TowerCards : MonoBehaviour
 
         List<GameObject> outputList = new();
         
-        for (int i = 0; i < baseButtonSpawnPool.Count - 1; i++)
+        for (int  i = 0; i < baseButtonSpawnPool.Count-1; i++)
         {
-            int randomIndex = Random.Range(0, refList.Count);
-
-            outputList.Add(baseButtonSpawnPool[randomIndex]);
+            int randomIndex = Random.Range(0, baseButtonSpawnPool.Count-1 - i);
+            outputList.Add(refList[randomIndex]);
             refList.RemoveAt(randomIndex);
         }
+
+        // for (int i = 0; i < baseButtonSpawnPool.Count - 1; i++)
+        // {
+        //     int randomIndex = Random.Range(0, refList.Count);
+
+        //     outputList.Add(baseButtonSpawnPool[randomIndex]);
+        //     refList.RemoveAt(randomIndex);
+        // }
 
         return outputList;
     }
